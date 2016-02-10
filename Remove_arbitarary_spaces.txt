@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<string.h>
+
+
+int main ()
+{
+    char caInput[100];
+    char caOutput[100];
+    char *pcCurrIpLoc;
+    char *pcCurrOpLoc;
+    int iLength = 0, iCounter, iSpaceCounter = 0;
+    
+    memset(&caInput,0,sizeof(caInput));
+    memset(&caOutput,0,sizeof(caOutput));
+    
+    pcCurrIpLoc = caInput;
+    pcCurrOpLoc = caOutput;
+    
+     strcpy(caInput,"The sky  is  blue     ");
+    
+    iLength = strlen(caInput);
+    
+    for (iCounter = 0; iCounter < iLength; iCounter++)
+    {
+        if (*pcCurrIpLoc != (char*)32)
+        {
+            if(iSpaceCounter == 1) 
+            {
+                *pcCurrOpLoc = (char*)32;
+                pcCurrOpLoc++;
+            }
+            
+            *pcCurrOpLoc = *pcCurrIpLoc;
+            pcCurrOpLoc++;
+            
+            iSpaceCounter = 0;
+        }
+        else
+        {
+            if (iSpaceCounter == 0)
+            {
+                iSpaceCounter = 1;
+            }
+            
+        }
+        pcCurrIpLoc++;
+    }
+    
+    printf("Input Value : \"%s\" \n", caInput);
+    printf("Output Value : \"%s\"", caOutput);
+    
+    return 0;
+}

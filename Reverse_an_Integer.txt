@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+
+int main ()
+{
+    int iInputVal, iRevInt = 0, iTempVal, iOrigInputVal;
+    
+    scanf("%d",&iInputVal);
+    
+    iOrigInputVal = iInputVal;
+    
+    while (iInputVal > 0)
+    {
+        iTempVal = iInputVal % 10;
+        iRevInt = iRevInt * 10 + iTempVal;
+        iInputVal = iInputVal / 10;
+    }
+    
+    printf("Input Value : %d \n", iOrigInputVal);
+    printf("Reverse Value : %d", iRevInt);
+    
+    return;
+}
